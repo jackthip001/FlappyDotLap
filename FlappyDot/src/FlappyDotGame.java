@@ -3,6 +3,7 @@ import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 
 
@@ -37,6 +38,13 @@ public class FlappyDotGame extends BasicGame {
 	public void update(GameContainer container, int delta) throws SlickException {
 		// TODO Auto-generated method stub
 		dot.update();
+	}
+	
+	@Override
+	public void keyPressed(int key, char c) {
+	    if (key == Input.KEY_SPACE) {
+	    	dot.setVy(DOT_INITIAL_VY);
+	    }
 	}
 	
 	public static void main(String[] args) {

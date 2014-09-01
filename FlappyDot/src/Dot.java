@@ -31,4 +31,7 @@ public class Dot {
 	    image.draw(x - WIDTH/2, FlappyDotGame.GAME_HEIGHT - y - (HEIGHT/2));
 	}
 	
+	public void setVy(float vy) {
+		this.vy = vy;
+	}
 }
