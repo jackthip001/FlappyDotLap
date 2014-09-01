@@ -7,7 +7,9 @@ import org.newdawn.slick.SlickException;
 
 
 public class FlappyDotGame extends BasicGame {
-	 
+	
+	private Dot dot;
+	
 	public FlappyDotGame(String title) {
 		super(title);
 	}
@@ -15,13 +17,16 @@ public class FlappyDotGame extends BasicGame {
 	@Override
 	public void render(GameContainer container, Graphics g) throws SlickException {
 		// TODO Auto-generated method stub
+		dot.render();
 	}
 
 	@Override
 	public void init(GameContainer container) throws SlickException {
 		// TODO Auto-generated method stub
+		dot = new Dot(320, 240);
 		Color background = new Color(135, 206, 255);
 	    container.getGraphics().setBackground(background); 
+	    
 	}
 
 	@Override
