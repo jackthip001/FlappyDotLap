@@ -12,8 +12,9 @@ public class FlappyDotGame extends BasicGame {
 	private Dot dot;
 	public static final int GAME_WIDTH = 640;
 	public static final int GAME_HEIGHT = 480;
-	public static final float DOT_INITIAL_VY = 10;
+	public static final float DOT_JUMP_VY = 10;
 	public static final float G = (float) 0.3;
+	private boolean isStarted;
 	   
 	public FlappyDotGame(String title) {
 		super(title);
@@ -28,7 +29,8 @@ public class FlappyDotGame extends BasicGame {
 	@Override
 	public void init(GameContainer container) throws SlickException {
 		// TODO Auto-generated method stub
-		dot = new Dot(GAME_WIDTH/2, GAME_HEIGHT/2,DOT_INITIAL_VY);
+		isStarted = false;
+		dot = new Dot(GAME_WIDTH/2, GAME_HEIGHT/2,DOT_JUMP_VY);
 		Color background = new Color(135, 206, 255);
 	    container.getGraphics().setBackground(background); 
 	    
@@ -37,13 +39,16 @@ public class FlappyDotGame extends BasicGame {
 	@Override
 	public void update(GameContainer container, int delta) throws SlickException {
 		// TODO Auto-generated method stub
-		dot.update();
+		if(isStarted){
+			dot.update();
+		}
 	}
 	
 	@Override
 	public void keyPressed(int key, char c) {
 	    if (key == Input.KEY_SPACE) {
-	    	dot.setVy(DOT_INITIAL_VY);
+	    	isStarted = true;
+	    	dot.jump();
 	    }
 	}
 	

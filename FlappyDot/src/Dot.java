@@ -10,16 +10,18 @@ public class Dot {
 	public static final int WIDTH = 40;
 	public static final int HEIGHT = 40;
 	private float vy;
-
+	private float vjump;
+	
 	public Dot(float x, float y) throws SlickException {
 		this.x = x;
 	    this.y = y;
 	    image = new Image("res/dot.png");
 	}
 	
-	public Dot(float x, float y, float vy) throws SlickException {
+	public Dot(float x, float y, float vjump) throws SlickException {
 		this(x,y);
-		this.vy = vy;
+		this.vy = vjump;
+		this.vjump = vjump;
 	}
 		 
 	public void update() {
@@ -31,7 +33,7 @@ public class Dot {
 	    image.draw(x - WIDTH/2, FlappyDotGame.GAME_HEIGHT - y - (HEIGHT/2));
 	}
 	
-	public void setVy(float vy) {
-		this.vy = vy;
+	public void jump() {
+		vy = vjump;
 	}
 }
