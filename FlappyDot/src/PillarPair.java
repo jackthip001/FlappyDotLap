@@ -1,3 +1,5 @@
+import java.util.Random;
+
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
@@ -33,6 +35,15 @@ public class PillarPair {
 	
 	public void update() {
 		x += vx;
+		if(x < 0){
+			x = FlappyDotGame.GAME_WIDTH + WIDTH;
+			randomY();
+		}
 	}
 	
+	public void randomY() {
+	    Random random = new Random();
+	    y = random.nextInt(FlappyDotGame.GAME_HEIGHT-100);
+	    
+	}
 }
